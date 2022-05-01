@@ -1,3 +1,5 @@
+@import url('https://css.gg/css');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,6 +30,11 @@ h2, h3,h4{
 @font-face {
   font-family: 'MPlus-Bold';
   src: url('./assets/fonts/MPlus/MPLUSRounded1c-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MPlus-Black';
+  src: url('./assets/fonts/MPlus/MPLUSRounded1c-Black.ttf') format('truetype');
 }
 
 

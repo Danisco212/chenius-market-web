@@ -1,0 +1,12 @@
+button.ch-footer-button:hover{
+    background-position: left;
+}
+
+button.ch-footer-button{
+    background: transparent; /* default color */
+
+    /* "to left" / "to right" - affects initial color */
+    background: linear-gradient(to left, transparent 50%, #E9204F 50%) right;
+    background-size: 200%;
+    transition: .25s ease-out;
+}
