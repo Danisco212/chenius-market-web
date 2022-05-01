@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p, h1, button,a{
+  font-family: 'MPlus';
+}
+
+h2, h3,h4{
+  font-family: 'MPlus-Bold';
+}
+
+@font-face {
+  font-family: 'MPlus';
+  src: url('./assets/fonts/MPlus/MPLUSRounded1c-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MPlus-Bold';
+  src: url('./assets/fonts/MPlus/MPLUSRounded1c-Bold.ttf') format('truetype');
+}
+
+
