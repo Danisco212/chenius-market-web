@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { deviceType } from '../../utils/metrics'
+import { ContactForm } from '../ContactForm'
 import { FooterButton } from '../FooterButton'
 import { FooterData } from '../FooterData'
 import { SocialIcon } from '../SocialIcon'
 import './style.css'
 
 export function Footer() {
+    const [showContact, setShowContact] = useState(false);
     return (
         <div style={{
             width: '100vw',
@@ -23,7 +26,7 @@ export function Footer() {
                 width: deviceType() === 'desktop' ? 1200 : '80%'
             }}>
 
-                <FooterButton label={"Make An Enquiry?"} />
+                <FooterButton action={setShowContact.bind(this, true)} label={"Make An Enquiry?"} />
 
                 <h1 style={{
                     margin: 0,
@@ -85,6 +88,7 @@ export function Footer() {
                     width: '70%'
                 }}>© {new Date().getFullYear() + " Chenius Creative All Rights Reserved"}</p>
             </div>
+            {showContact && <ContactForm close={setShowContact.bind(this, false)} />}
         </div>
     )
 }

@@ -37,7 +37,7 @@ export function Header() {
     return (
         <div style={headerStyle} className='che-header'>
             <div style={containerStyle} className='container ch-container'>
-                <Logo size={60} />
+                <Logo size={50} />
 
                 {deviceType() === 'desktop'
                     ?

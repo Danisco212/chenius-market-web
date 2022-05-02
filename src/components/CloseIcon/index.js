@@ -1,10 +1,11 @@
 import "./style.css"
 
-export function CloseIcon({action}) {
+export function CloseIcon({action, color = 'white'}) {
     return (
         <div onClick={action} style={{
             height: 40,
             width: 40,
+            cursor: 'pointer',
             position: 'relative',
             display: 'flex',
             flexDirection: 'row',
@@ -15,7 +16,7 @@ export function CloseIcon({action}) {
                     position: 'absolute',
                     width: 30,
                     height: 5,
-                    backgroundColor: 'white',
+                    backgroundColor: color,
                     borderRadius: 5,
                     transform: 'rotate(45deg)'
                 }
@@ -25,7 +26,7 @@ export function CloseIcon({action}) {
                     position: 'absolute',
                     width: 30,
                     height: 5,
-                    backgroundColor: 'white',
+                    backgroundColor: color,
                     borderRadius: 5,
                     transform: 'rotate(-45deg)'
                 }

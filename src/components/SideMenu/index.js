@@ -18,6 +18,7 @@ export function SideMenu({sideOpen, close}) {
         <div ref={holdRef} className="ch-side-menu" style={{
             position: 'fixed',
             width: '100vw',
+            height: '100vh',
             zIndex: 100,
             left: sideOpen ? 0 : window.innerWidth,
             transition: '0.25s ease-in',
