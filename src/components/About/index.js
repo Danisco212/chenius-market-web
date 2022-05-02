@@ -1,3 +1,4 @@
+import { images } from "../../assets/images"
 import { deviceType } from "../../utils/metrics"
 import { AboutSection } from "../AboutSection"
 import { Spacer } from "../Spacer"
@@ -46,11 +47,11 @@ export function About() {
                     alignItems: 'flex-start',
                     justifyContent: 'space-between'
                 }}>
-                    <AboutSection image={"http://gentium.themeflo.com/demo/assets/images/about_01.jpg"} title={"Who We Are"} body="Chenius Solution was founded under co-founders’ vision as seeing the great opportunities in the new technology world. With a clear vision, what we do is to bring out creative and innovative digital solutions to our clients which help to grow their business dramatically. " />
+                    <AboutSection image={images.about1} title={"Who We Are"} body="Chenius Solution was founded under co-founders’ vision as seeing the great opportunities in the new technology world. With a clear vision, what we do is to bring out creative and innovative digital solutions to our clients which help to grow their business dramatically. " />
                     <Spacer width={40} />
-                    <AboutSection image={"http://gentium.themeflo.com/demo/assets/images/about_02.jpg"} title={"What We Do"} body="We not only offer business solutions that is functional, but we are also dedicated to build the most effective and coolest digital solution. We work with heart and accountability to focus on our clients’ benefit and social responsibility." />
+                    <AboutSection image={images.about2} title={"What We Do"} body="We not only offer business solutions that is functional, but we are also dedicated to build the most effective and coolest digital solution. We work with heart and accountability to focus on our clients’ benefit and social responsibility." />
                     <Spacer width={40} />
-                    <AboutSection image={"http://gentium.themeflo.com/demo/assets/images/about_03.jpg"} title={"Our Philosophy"} body="Inspire our team to dream more, learn more and do more. Satisfy our clients with the best match to their needs. Trust everyone can bring a better change and growth together." />
+                    <AboutSection image={images.about3} title={"Our Philosophy"} body="Inspire our team to dream more, learn more and do more. Satisfy our clients with the best match to their needs. Trust everyone can bring a better change and growth together." />
                 </div>
             </div>
         </div>
