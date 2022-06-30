@@ -1,14 +1,19 @@
-import { images } from "../../assets/images"
+import { images } from "../../assets"
 import { deviceType } from "../../utils/metrics"
 import { FooterButton } from "../FooterButton"
 import { Spacer } from "../Spacer"
 import "./style.css"
 
+function toLocation(location){
+    window.location.href = "#"+location
+}
+
 export function HeroBox() {
     return (
         <div style={{
+            paddingTop: 110,
             width: '100vw',
-            height: deviceType() !== 'desktop' ? '85vh' : '70vh',
+            height: deviceType() !== 'desktop' ? '85vh' : '85vh',
             backgroundColor: 'black',
             display: 'flex',
             justifyContent: 'center'
@@ -27,7 +32,7 @@ export function HeroBox() {
                         fontSize: 50,
                         fontFamily: 'MPlus-Black'
                     }}>Advanced Technology Solutions</h1>
-                    <FooterButton label={"Get Started"} />
+                    <FooterButton action={toLocation.bind(this, "contact")} label={"Get Started"} />
                 </div>
                 {deviceType() === 'desktop' && (
                     <img alt="" style={{

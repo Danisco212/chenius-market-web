@@ -1,4 +1,4 @@
-import { images } from "../../assets/images"
+import { images } from "../../assets"
 import "./style.css"
 
 export function Logo({size}){

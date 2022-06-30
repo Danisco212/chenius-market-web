@@ -1,11 +1,11 @@
 import { deviceType } from "../../utils/metrics"
 import "./style.css"
 
-export function AboutSection({title, body, image}){
+export function AboutSection({title, body, image, fullHeight = true}){
     return(
         <div style={{
             flex: deviceType() !== 'desktop' ? 'unset' : 1/3,
-            minHeight: 600,
+            minHeight: fullHeight ? 600 : 'unset',
             width: deviceType() !== 'desktop' ? '100%' : 'unset',
             display: 'flex',
             flexDirection: 'column',
@@ -18,7 +18,7 @@ export function AboutSection({title, body, image}){
                 backgroundPositionX: -50,
                 backgroundRepeat: 'no-repeat',
                 width: '100%',
-                backgroundColor: 'red'
+                backgroundColor: 'transparent'
             }}>
 
             </div>

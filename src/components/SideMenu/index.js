@@ -3,7 +3,15 @@ import { CloseIcon } from "../CloseIcon"
 import { MenuItem } from "../MenuItem"
 import "./style.css"
 
+
 export function SideMenu({sideOpen, close}) {
+    function toLocation(location){
+        close()
+        setTimeout(()=>{
+            window.location.href = "#"+location
+        }, 300)
+    }
+
     const holdRef = useRef();
 
     useEffect(()=>{
@@ -42,12 +50,12 @@ export function SideMenu({sideOpen, close}) {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <MenuItem side label="Home" />
-                <MenuItem side label="Services" />
-                <MenuItem side label="Works" />
-                <MenuItem side label="About" />
-                <MenuItem side label="Clients" />
-                <MenuItem side label="Contact" />
+                <MenuItem side action={toLocation.bind(this, "")} label="Home" />
+                <MenuItem side action={toLocation.bind(this, "services")} label="Services" />
+                {/* <MenuItem side action={toLocation.bind(this, "works")} label="Works" /> */}
+                <MenuItem side action={toLocation.bind(this, "about")} label="About" />
+                <MenuItem side action={toLocation.bind(this, "clients")} label="Clients" />
+                <MenuItem side action={toLocation.bind(this, "contact")} label="Contact" />
             </div>
         </div>
     )

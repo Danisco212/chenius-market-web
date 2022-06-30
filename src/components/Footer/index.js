@@ -9,7 +9,7 @@ import './style.css'
 export function Footer() {
     const [showContact, setShowContact] = useState(false);
     return (
-        <div style={{
+        <div id='footer' style={{
             width: '100vw',
             display: 'flex',
             flexDirection: 'column',
@@ -66,8 +66,8 @@ export function Footer() {
                     alignItems: 'center',
                     justifyContent: 'space-around'
                 }}>
-                    <FooterData title={"Call"} data="+855968794582" />
-                    <FooterData title={"Email"} data="info@chenius.com" />
+                    <FooterData title={"Call"} data="+855 69 523 756" />
+                    <FooterData title={"Email"} data="info@misterisaac.digital" />
                 </div>
             </div>
 

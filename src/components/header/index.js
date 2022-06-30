@@ -8,6 +8,8 @@ import './header.css'
 
 const headerStyle = {
     backgroundColor: 'black',
+    position: 'fixed',
+    zIndex: 100,
     height: 110,
     width: '100vw',
     display: 'flex',
@@ -31,6 +33,10 @@ const menuHolderStyle = {
     justifyContent: 'space-between'
 }
 
+function toLocation(location){
+    window.location.href = "#"+location
+}
+
 export function Header() {
     const [sideOpen, setSideOpen] = useState(false)
 
@@ -42,12 +48,12 @@ export function Header() {
                 {deviceType() === 'desktop'
                     ?
                     <div style={menuHolderStyle} className='ch-menu'>
-                        <MenuItem label="Home" />
-                        <MenuItem label="Services" />
-                        <MenuItem label="Works" />
-                        <MenuItem label="About" />
-                        <MenuItem label="Clients" />
-                        <MenuItem label="Contact" />
+                        <MenuItem action={toLocation.bind(this, "")} label="Home" />
+                        <MenuItem action={toLocation.bind(this, "services")} label="Services" />
+                        {/* <MenuItem action={toLocation.bind(this, "works")} label="Works" /> */}
+                        <MenuItem action={toLocation.bind(this, "about")} label="About" />
+                        <MenuItem action={toLocation.bind(this, "clients")} label="Clients" />
+                        <MenuItem action={toLocation.bind(this, "footer")} label="Contact" />
                     </div>
                     :
                     <HamburgerIcon action={setSideOpen.bind(this, true)} />

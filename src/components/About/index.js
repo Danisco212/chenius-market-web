@@ -1,4 +1,4 @@
-import { images } from "../../assets/images"
+import { images } from "../../assets"
 import { deviceType } from "../../utils/metrics"
 import { AboutSection } from "../AboutSection"
 import { Spacer } from "../Spacer"

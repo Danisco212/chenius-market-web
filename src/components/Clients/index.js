@@ -1,4 +1,4 @@
-import { images } from "../../assets/images"
+import { images } from "../../assets"
 import { deviceType } from "../../utils/metrics"
 import { Client } from "../Client"
 import { Spacer } from "../Spacer"

@@ -4,17 +4,32 @@ import { CloseIcon } from "../CloseIcon"
 import { FormInput } from "../FormInput"
 import { FormLabel } from "../FormLabel"
 import { Spacer } from "../Spacer"
+import emailjs from "@emailjs/browser";
+
 import "./style.css"
+import { useRef } from "react"
 
 const FORM_SPACER = 10
 
-export function ContactForm({close}) {
+export function ContactForm({ close }) {
+    const form = useRef();
+
+    const handleSumit = e => {
+        e.preventDefault();
+        emailjs.sendForm('service_8xyba0y', 'template_tbdxjg6', form.current, 'EEza8YDuOckHrzYjj')
+            .then((result) => {
+                console.log(result.text);
+                window.location.reload();
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
     return (
         <div style={{
             transition: '1s !important',
             overflow: 'scroll',
             width: '100vw',
-            top: 0,
+            top: 80,
             left: 0,
             right: 0,
             bottom: 0,
@@ -46,27 +61,27 @@ export function ContactForm({close}) {
                     <CloseIcon action={close} color="red" />
                 </div>
 
-                <form style={{
+                <form ref={form} onSubmit={handleSumit} style={{
                     marginTop: 40
                 }}>
                     <div>
                         <FormLabel label={"Your Name"} />
-                        <FormInput />
+                        <FormInput name="user_name" type="text" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Email"} />
-                        <FormInput />
+                        <FormInput type="email" name="user_email" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Subject"} />
-                        <FormInput />
+                        <FormInput type="text" name="subject" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Message"} />
-                        <FormInput large={true} />
+                        <FormInput name="message" type="text" large={true} />
                     </div>
                     <Spacer height={20} />
                     <Button label={"Send Message"} />
