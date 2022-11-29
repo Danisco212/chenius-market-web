@@ -4,6 +4,9 @@ import { FooterButton } from "../FooterButton";
 
 const RequestDemo = () =>{
     const [showContact, setShowContact] = useState(false)
+    const toLocation = () => {
+        window.location.href = 'https://calendly.com/daniel-chisaac/30min'
+    }
     return(
         <div style={{
             backgroundColor: '#1B1B1B',
@@ -15,7 +18,7 @@ const RequestDemo = () =>{
             marginBottom: 20,
         }}>
             <p style={{color: "white", fontWeight: '600'}}>Wan't to see some samples? Request a demo at anytime of your convenience</p>
-            <FooterButton action={() => setShowContact(true)} label={"Request Demo"} />
+            <FooterButton action={toLocation} label={"Request Demo"} />
             {showContact && <ContactForm close={setShowContact.bind(this, false)} />}
         </div>
     )
