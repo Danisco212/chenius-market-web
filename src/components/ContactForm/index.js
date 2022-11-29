@@ -8,21 +8,58 @@ import emailjs from "@emailjs/browser";
 
 import "./style.css"
 import { useRef } from "react"
+import axios from "axios"
+import { useState } from "react"
 
 const FORM_SPACER = 10
 
 export function ContactForm({ close }) {
     const form = useRef();
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const handleSumit = e => {
         e.preventDefault();
-        emailjs.sendForm('service_8xyba0y', 'template_tbdxjg6', form.current, 'EEza8YDuOckHrzYjj')
-            .then((result) => {
-                console.log(result.text);
-                window.location.reload();
-            }, (error) => {
-                console.log(error.text);
-            });
+        if(!name || !email || !subject || !message){
+            alert('Please fill all the fields')
+            return
+        }
+        setLoading(true)
+        axios.post("https://aws-instance.misterisaac.digital:8000/email/send", {
+            "name": name,
+            "subject": subject,
+            "message": message,
+            "email": email,
+            "website": "chenius.com"
+        })
+        .then(data => {
+            let result = data.data
+            console.log(result)
+            if(result.status){
+                setName('')
+                setEmail('')
+                setMessage('')
+                setSubject('')
+            }
+            close()
+            alert('Your email has been sent')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+        // emailjs.sendForm('service_8xyba0y', 'template_tbdxjg6', form.current, 'EEza8YDuOckHrzYjj')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //         window.location.reload();
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
     }
     return (
         <div style={{
@@ -66,25 +103,25 @@ export function ContactForm({ close }) {
                 }}>
                     <div>
                         <FormLabel label={"Your Name"} />
-                        <FormInput name="user_name" type="text" />
+                        <FormInput value={name} onChange={(inp) => setName(inp.target.value)} name="user_name" type="text" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Email"} />
-                        <FormInput type="email" name="user_email" />
+                        <FormInput value={email} onChange={(inp) => setEmail(inp.target.value)} type="email" name="user_email" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Subject"} />
-                        <FormInput type="text" name="subject" />
+                        <FormInput value={subject} onChange={(inp) => setSubject(inp.target.value)} type="text" name="subject" />
                     </div>
                     <Spacer height={FORM_SPACER} />
                     <div>
                         <FormLabel label={"Your Message"} />
-                        <FormInput name="message" type="text" large={true} />
+                        <FormInput value={message} onChange={(inp) => setMessage(inp.target.value)} name="message" type="text" large={true} />
                     </div>
                     <Spacer height={20} />
-                    <Button label={"Send Message"} />
+                    <Button active={!loading} label={"Send Message"} />
                 </form>
                 <Spacer height={30} />
             </div>

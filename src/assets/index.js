@@ -9,9 +9,11 @@ import about2 from "./images/about_02.jpeg"
 import about3 from "./images/about_03.jpeg"
 import webDev from "./images/web_dev.jpeg"
 import appDev from "./images/app_dev.jpeg"
+import man from './images/man.png'
 
 export const images = {
     fullLogo,
+    man,
     yoga,
     banana,
     chesire,

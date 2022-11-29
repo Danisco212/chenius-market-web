@@ -13,7 +13,8 @@ export function HeroBox() {
         <div style={{
             paddingTop: 110,
             width: '100vw',
-            height: deviceType() !== 'desktop' ? '85vh' : '85vh',
+            overflow: 'hidden',
+            height: deviceType() !== 'desktop' ? '85vh' : '600px',
             backgroundColor: 'black',
             display: 'flex',
             justifyContent: 'center'
@@ -36,11 +37,11 @@ export function HeroBox() {
                 </div>
                 {deviceType() === 'desktop' && (
                     <img alt="" style={{
-                        top: -20,
-                        right: -150,
+                        top: 10,
+                        right: 20,
                         height: 500,
                         position: 'absolute'
-                    }} src={images.hero} />
+                    }} src={images.man} />
                 )}
             </div>
         </div>
